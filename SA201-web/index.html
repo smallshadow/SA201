@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>SA201 警衛室棟｜3D 模型瀏覽</title>
+  <meta name="description" content="警衛室棟互動模型：構件顯示、屋頂與底座隱藏、爆炸圖。">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23162437'/%3E%3Cpath d='M6 13 16 7l10 6v13H6zM6 13h20M16 13v13' fill='none' stroke='%234fd1ca' stroke-width='2'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="vendor/three.js"></script><script defer src="vendor/controls.js"></script>
+  <script defer src="assets/model.js"></script><script defer src="app.js"></script>
+</head>
+<body>
+<header><div class="brandmark" aria-hidden="true">S<span>201</span></div><div><p class="eyebrow">ARCHITECTURAL MODEL</p><h1>警衛室棟 <span>SA201</span></h1></div><a class="download" href="assets/SA201_guardhouse.skp" download>下載 SKP <span aria-hidden="true">↗</span></a></header>
+<main>
+  <section id="viewport" aria-label="互動三維模型">
+    <div class="view-top"><span class="view-badge" id="view-name">外觀透視</span><span class="scale">單位 mm · 等比例模型</span></div>
+    <div id="loading" role="status">正在準備 3D 模型…</div>
+    <div id="error" role="alert" hidden>無法啟動 3D 檢視。請使用支援 WebGL 2 的 Chrome、Edge 或 Safari，並確認資料夾完整。</div>
+    <div id="part-labels" aria-hidden="true"></div>
+    <div class="view-bottom"><span>拖曳旋轉 · 滾輪縮放 · 右鍵平移</span><button id="fit" title="讓目前可見的模型充滿畫面">置中模型</button></div>
+  </section>
+  <aside aria-label="模型控制">
+    <section class="control-section"><div class="section-heading"><span class="number">01</span><h2>觀看角度</h2></div>
+      <div class="views"><button class="active" data-view="exterior" aria-pressed="true">外觀</button><button data-view="interior" aria-pressed="false">室內</button><button data-view="top" aria-pressed="false">俯視</button></div>
+    </section>
+    <section class="control-section"><div class="section-heading"><span class="number">02</span><h2>構件顯示</h2><button id="show-all" class="text-button">全部顯示</button></div>
+      <label class="toggle primary"><span><b>屋頂</b><small>雨遮、屋面與女兒牆</small></span><input id="roof" type="checkbox" checked><i aria-hidden="true"></i></label>
+      <label class="toggle primary"><span><b>大底／底座</b><small>基座、地坪及平台</small></span><input id="base" type="checkbox" checked><i aria-hidden="true"></i></label>
+      <details><summary>其他構件</summary><div id="part-controls"></div></details>
+    </section>
+    <section class="control-section"><div class="section-heading"><span class="number">03</span><h2>爆炸圖</h2><output id="explode-value" for="explode">0%</output></div>
+      <input id="explode" class="range" aria-label="爆炸圖分離程度" type="range" min="0" max="100" value="0">
+      <div class="range-labels"><span>組合</span><span>展開</span></div>
+      <div class="explode-actions"><button id="explode-toggle">展開爆炸圖</button><button id="assemble">組合復位</button></div>
+      <label class="check"><input id="labels" type="checkbox" checked>爆炸圖構件名稱</label>
+    </section>
+    <section class="control-section display-controls"><label class="check"><input id="edges" type="checkbox" checked>顯示輪廓線</label><label class="check"><input id="rotate" type="checkbox">自動旋轉</label><button id="reset" class="reset">重設所有檢視</button></section>
+    <footer><span class="footer-title">SA201 · 警衛室棟</span><p>依建築圖建立，部分厚度與設備細節為推定或簡化。後方格柵為非本工程參考。</p><a href="assets/model-notes.txt" target="_blank" rel="noopener">模型說明</a></footer>
+  </aside>
+</main>
+<noscript>請啟用 JavaScript 以瀏覽互動模型。</noscript>
+</body></html>
